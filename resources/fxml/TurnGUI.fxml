@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalchess.controller.TurnController">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@turn.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="animal1" layoutX="142.0" layoutY="127.0" mnemonicParsing="false" onAction="#selectAnimal1" text="Animal 1">
+            <font>
+                <Font name="DIN Alternate Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="animal2" layoutX="225.0" layoutY="127.0" mnemonicParsing="false" onAction="#selectAnimal2" text="Animal 2">
+            <font>
+                <Font name="DIN Alternate Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="animal3" layoutX="309.0" layoutY="127.0" mnemonicParsing="false" onAction="#selectAnimal3" text="Animal 3">
+            <font>
+                <Font name="DIN Alternate Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="animal4" layoutX="393.0" layoutY="127.0" mnemonicParsing="false" onAction="#selectAnimal4" text="Animal 4">
+            <font>
+                <Font name="DIN Alternate Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="animal5" layoutX="142.0" layoutY="171.0" mnemonicParsing="false" onAction="#selectAnimal5" text="Animal 5">
+            <font>
+                <Font name="DIN Alternate Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="animal6" layoutX="225.0" layoutY="171.0" mnemonicParsing="false" onAction="#selectAnimal6" text="Animal 6 ">
+            <font>
+                <Font name="DIN Alternate Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="animal7" layoutX="309.0" layoutY="171.0" mnemonicParsing="false" onAction="#selectAnimal7" text="Animal 7">
+            <font>
+                <Font name="DIN Alternate Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="animal8" layoutX="393.0" layoutY="171.0" mnemonicParsing="false" onAction="#selectAnimal8" text="Animal 8">
+            <font>
+                <Font name="DIN Alternate Bold" size="13.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="player1" fitHeight="104.0" fitWidth="108.0" layoutX="110.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="player2" fitHeight="104.0" fitWidth="108.0" layoutX="380.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
+        <Text fx:id="turnText" fill="#222545" layoutX="196.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" textAlignment="CENTER" wrappingWidth="192.13671875">
+            <font>
+                <Font name="Garamond Bold" size="16.0" />
+            </font>
+        </Text>
+        <Text fx:id="turnFinalText" fill="#2e3467" layoutX="246.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="108.0">
+            <font>
+                <Font name="Garamond Bold" size="18.0" />
+            </font>
+        </Text>
+    </children>
+</Pane>

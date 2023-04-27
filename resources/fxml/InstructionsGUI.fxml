@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="animalchess.controller.InstructionsController">
+    <children>
+        <ImageView fitHeight="413.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@instructions.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="okButton" layoutX="269.0" layoutY="334.0" mnemonicParsing="false" onAction="#nextScene"
+                prefHeight="34.0" prefWidth="62.0" text="OK">
+            <font>
+                <Font name="DIN Alternate Bold" size="20.0"/>
+            </font>
+        </Button>
+    </children>
+</Pane>
