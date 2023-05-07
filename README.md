@@ -4,8 +4,11 @@ Animal Chess is a two-player game that uses animals with rank (and some with spe
 
 ## Preview
 *Home*
+
 ![preview1](./preview1.png)
+
 *In-game*
+
 ![preview2](./preview2.png)
 
 ## Features
