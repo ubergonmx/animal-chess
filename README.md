@@ -38,7 +38,7 @@ However the following exceptions apply:
 
 - Implements the Model-View-Controller (MVC) design pattern
 - Allows players to move pieces on the board according to the rules of the game
-- Utilizes both JavaFX (Home) and Java Swing (Ingame) UI toolkit
+- Utilizes both JavaFX (Home) and Java Swing (In-game) UI toolkit
 - In-game sound effects for all actions
 
 ## How to Play
