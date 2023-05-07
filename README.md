@@ -1,6 +1,6 @@
 # Animal Chess
 
-Animal Chess is a two-player game that uses animals with rank as pieces. This project was developed as part of the requirements for the Introductory Programming (CCPROG3) class.
+Animal Chess is a two-player game that uses animals with rank (and some with special ability) as pieces. This project was developed as part of the requirements for the Introductory Programming (CCPROG3) class.
 
 ## Preview
 *Home*
