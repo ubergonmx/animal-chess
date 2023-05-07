@@ -21,13 +21,13 @@ Generally,
 
 However the following exceptions apply:
 
-### **Movement**
+### Movement
 
 - The mouse is the only animal that is allowed to move on the river .
 - Both the lion and the tiger can jump from the land before the river to the land after the river, horizontally or vertically, as long as there is no mouse along the way .
 - A player may not move his own piece to his own animal den
 
-### **Capturing an opponent's piece**
+### Capturing an opponent's piece
 - A player may capture an opponent's piece with a higher rank that is on one of his traps .
 - An elephant may not capture a mouse while the mouse can capture an elephant.
 - A mouse on the river may not capture an elephant or another mouse on land.
