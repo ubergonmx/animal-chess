@@ -176,60 +176,91 @@ public class TurnController {
      * This shuffles the value of teh buttons
      */
     public void shuffle() {
+        int baseX = 35;
+        int baseY = 15;
+        MoveTo base = new MoveTo(baseX, baseY);
+
+        int y = 44;
+        int toRight = 81;
+        int toLeft = 86;
         Path down = new Path();
-        down.getElements().add(new MoveTo(35, 15));
-        down.getElements().add(new LineTo(35, 59));
+        down.getElements().add(base);
+        down.getElements().add(new LineTo(baseX, baseY + y));
 
         Path up = new Path();
-        up.getElements().add(new MoveTo(35, 15));
-        up.getElements().add(new LineTo(35, -31));
+        up.getElements().add(base);
+        up.getElements().add(new LineTo(baseX, baseY - y));
+
+        Path left = new Path();
+        left.getElements().add(base);
+        left.getElements().add(new LineTo(baseX - toLeft, baseY));
+
+        Path right = new Path();
+        right.getElements().add(base);
+        right.getElements().add(new LineTo(baseX + toRight, baseY));
+
+        Path upLeft = new Path();
+        upLeft.getElements().add(base);
+        upLeft.getElements().add(new LineTo(baseX - toLeft, baseY - y));
+
+        Path upRight = new Path();
+        upRight.getElements().add(base);
+        upRight.getElements().add(new LineTo(baseX + toRight, baseY - y));
+
+        Path downLeft = new Path();
+        downLeft.getElements().add(base);
+        downLeft.getElements().add(new LineTo(baseX - toLeft, baseY + y));
+
+        Path downRight = new Path();
+        downRight.getElements().add(base);
+        downRight.getElements().add(new LineTo(baseX + toRight, baseY + y));
 
         PathTransition trn = new PathTransition();
         trn.setDuration(Duration.seconds(1));
-        trn.setPath(down);
+        trn.setPath(right);
         trn.setNode(animal1);
         trn.play();
 
         PathTransition trn2 = new PathTransition();
         trn2.setDuration(Duration.seconds(1));
-        trn2.setPath(down);
+        trn2.setPath(left);
         trn2.setNode(animal2);
         trn2.play();
 
         PathTransition trn3 = new PathTransition();
         trn3.setDuration(Duration.seconds(1));
-        trn3.setPath(down);
+        trn3.setPath(downRight);
         trn3.setNode(animal3);
         trn3.play();
 
         PathTransition trn4 = new PathTransition();
         trn4.setDuration(Duration.seconds(1));
-        trn4.setPath(down);
+        trn4.setPath(downLeft);
         trn4.setNode(animal4);
         trn4.play();
 
 
         PathTransition trn5 = new PathTransition();
         trn5.setDuration(Duration.seconds(1));
-        trn5.setPath(up);
+        trn5.setPath(right);
         trn5.setNode(animal5);
         trn5.play();
 
         PathTransition trn6 = new PathTransition();
         trn6.setDuration(Duration.seconds(1));
-        trn6.setPath(up);
+        trn6.setPath(left);
         trn6.setNode(animal6);
         trn6.play();
 
         PathTransition trn7 = new PathTransition();
         trn7.setDuration(Duration.seconds(1));
-        trn7.setPath(up);
+        trn7.setPath(upRight);
         trn7.setNode(animal7);
         trn7.play();
 
         PathTransition trn8 = new PathTransition();
         trn8.setDuration(Duration.seconds(1));
-        trn8.setPath(up);
+        trn8.setPath(upLeft);
         trn8.setNode(animal8);
         trn8.play();
 
