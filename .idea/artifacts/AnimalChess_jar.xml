@@ -3,15 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/AnimalChess_jar</output-path>
     <root id="archive" name="AnimalChess.jar">
       <element id="module-output" name="AnimalChess" />
-      <element id="extracted-dir" path="$JAVAFX$/src.zip" path-in-jar="/" />
-      <element id="extracted-dir" path="$JAVAFX$/javafx-swt.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$JAVAFX$/javafx.web.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$JAVAFX$/javafx.base.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$JAVAFX$/javafx.fxml.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$JAVAFX$/javafx.media.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$JAVAFX$/javafx.swing.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$JAVAFX$/javafx.controls.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$JAVAFX$/javafx.graphics.jar" path-in-jar="/" />
       <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/JavaFX/javafx-sdk-11.0.2/bin/api-ms-win-core-console-l1-1-0.dll" />
       <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/JavaFX/javafx-sdk-11.0.2/bin/api-ms-win-core-datetime-l1-1-0.dll" />
       <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/JavaFX/javafx-sdk-11.0.2/bin/api-ms-win-core-debug-l1-1-0.dll" />
@@ -69,6 +60,15 @@
       <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/JavaFX/javafx-sdk-11.0.2/bin/ucrtbase.dll" />
       <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/JavaFX/javafx-sdk-11.0.2/bin/vcruntime140.dll" />
       <element id="dir-copy" path="$PROJECT_DIR$/resources" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/src.zip" path-in-jar="/" />
     </root>
   </artifact>
 </component>

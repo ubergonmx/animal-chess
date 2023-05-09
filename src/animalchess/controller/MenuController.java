@@ -3,12 +3,16 @@ package animalchess.controller;
  * This class is to perform the actions performed in the main menu
  */
 
+import animalchess.model.GameImages;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -33,7 +37,6 @@ public class MenuController {
         System.out.println("bye!");
         // get a handle to the stage
         Stage stage = (Stage) Exit.getScene().getWindow();
-        // do what you have to do
         stage.close();
     }
 
@@ -48,7 +51,9 @@ public class MenuController {
             //https://stackoverflow.com/a/25217393
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/InstructionsGUI.fxml"));
             Stage window = (Stage) Play.getScene().getWindow();
+            window.getIcons().add(new Image(GameImages.ANIMAL_DEN));
             window.setScene(new Scene(root, 600, 400));
+            window.setOnCloseRequest(e -> Platform.exit());
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }

@@ -2,9 +2,12 @@ package animalchess.view;
 
 import animalchess.model.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * The view of the game
@@ -26,6 +29,11 @@ public class GameGUI extends JFrame {
         super();
 
         setTitle("Animal Chess Game");
+        try {
+            setIconImage(new ImageIcon(ImageIO.read(new URL(GameImages.ANIMAL_DEN))).getImage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setResizable(false);
