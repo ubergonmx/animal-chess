@@ -19,9 +19,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.lang.reflect.Field;
+import java.util.*;
 
 public class TurnController {
 
@@ -100,11 +99,6 @@ public class TurnController {
 
     }
 
-    /**
-     * This function displays the buttons and their equivalent value
-     *
-     * @param event variable that represents that a card has been selected
-     */
     @FXML
     void selectAnimal1() {
 
@@ -172,98 +166,94 @@ public class TurnController {
 
     }
 
+    private int[] getButton(Button[][] button, Button find){
+        for(int i=0; i<button.length; i++){
+            for(int j=0; j<button[0].length; j++){
+                if(button[i][j] == find){
+                    return new int[]{i,j}; // row (y) , column (x)
+                }
+            }
+        }
+        return new int[]{-1,-1};
+    }
+
     /**
-     * This shuffles the value of teh buttons
+     * This shuffles the buttons on display
      */
     public void shuffle() {
         int baseX = 35;
         int baseY = 15;
         MoveTo base = new MoveTo(baseX, baseY);
 
-        int y = 44;
-        int toRight = 81;
-        int toLeft = 86;
-        Path down = new Path();
-        down.getElements().add(base);
-        down.getElements().add(new LineTo(baseX, baseY + y));
+        int toUpDown = 44;
+        double toLeftRight = 83.5;
 
-        Path up = new Path();
-        up.getElements().add(base);
-        up.getElements().add(new LineTo(baseX, baseY - y));
+        ArrayList<Button> buttons = new ArrayList<>(Arrays.asList(animal1, animal2, animal3, animal4, animal5, animal6, animal7, animal8));
+        Button[][] pos = {{animal1, animal2, animal3, animal4}, {animal5, animal6, animal7, animal8}};
+        Button[][] taken = new Button[2][4];
+        Path[][] buttonPath = new Path[2][4];
+        //randomly select a unique pair of buttons and set a PathTransition for them
+        for(int i = 0; i < buttons.size(); i++){
+            var currButton = buttons.get(i);
+            int[] currButtonPos = getButton(pos, currButton);
+            int j = currButtonPos[1];
+            int k = currButtonPos[0];
+            taken[k][j] = buttons.get(i);
+            var button = buttons.get(new Random().nextInt(buttons.size()));
+            int[] buttonPos = getButton(pos, button);
+            int x = buttonPos[1];
+            int y = buttonPos[0];
+            if (taken[y][x] != null) {
+                i--;
+                continue;
+            }
 
-        Path left = new Path();
-        left.getElements().add(base);
-        left.getElements().add(new LineTo(baseX - toLeft, baseY));
+            taken[y][x] = button;
+            int distanceX = Math.abs(j-x);
+            int distanceY = Math.abs(k-y);
+            buttonPath[k][j] = new Path();
+            buttonPath[k][j].getElements().add(base);
+            buttonPath[y][x] = new Path();
+            buttonPath[y][x].getElements().add(base);
 
-        Path right = new Path();
-        right.getElements().add(base);
-        right.getElements().add(new LineTo(baseX + toRight, baseY));
+            if(j<x){
+                if(k<y){
+                    buttonPath[k][j].getElements().add(new LineTo(baseX + toLeftRight*distanceX, baseY + toUpDown*distanceY));
+                    buttonPath[y][x].getElements().add(new LineTo(baseX - toLeftRight*distanceX, baseY - toUpDown*distanceY));
+                }
+                else {
+                    buttonPath[k][j].getElements().add(new LineTo(baseX + toLeftRight*distanceX, baseY - toUpDown*distanceY));
+                    buttonPath[y][x].getElements().add(new LineTo(baseX - toLeftRight*distanceX, baseY + toUpDown*distanceY));
+                }
+            }
+            else{
+                if(k<y){
+                    buttonPath[k][j].getElements().add(new LineTo(baseX - toLeftRight*distanceX, baseY + toUpDown*distanceY));
+                    buttonPath[y][x].getElements().add(new LineTo(baseX + toLeftRight*distanceX, baseY - toUpDown*distanceY));
+                }
+                else {
+                    buttonPath[k][j].getElements().add(new LineTo(baseX - toLeftRight*distanceX, baseY - toUpDown*distanceY));
+                    buttonPath[y][x].getElements().add(new LineTo(baseX + toLeftRight*distanceX, baseY + toUpDown*distanceY));
+                }
+            }
+            buttons.remove(currButton);
+            buttons.remove(button);
+            i--;
+        }
+        // play the PathTransition for each button
+        transition(taken, buttonPath);
+    }
 
-        Path upLeft = new Path();
-        upLeft.getElements().add(base);
-        upLeft.getElements().add(new LineTo(baseX - toLeft, baseY - y));
-
-        Path upRight = new Path();
-        upRight.getElements().add(base);
-        upRight.getElements().add(new LineTo(baseX + toRight, baseY - y));
-
-        Path downLeft = new Path();
-        downLeft.getElements().add(base);
-        downLeft.getElements().add(new LineTo(baseX - toLeft, baseY + y));
-
-        Path downRight = new Path();
-        downRight.getElements().add(base);
-        downRight.getElements().add(new LineTo(baseX + toRight, baseY + y));
-
-        PathTransition trn = new PathTransition();
-        trn.setDuration(Duration.seconds(1));
-        trn.setPath(right);
-        trn.setNode(animal1);
-        trn.play();
-
-        PathTransition trn2 = new PathTransition();
-        trn2.setDuration(Duration.seconds(1));
-        trn2.setPath(left);
-        trn2.setNode(animal2);
-        trn2.play();
-
-        PathTransition trn3 = new PathTransition();
-        trn3.setDuration(Duration.seconds(1));
-        trn3.setPath(downRight);
-        trn3.setNode(animal3);
-        trn3.play();
-
-        PathTransition trn4 = new PathTransition();
-        trn4.setDuration(Duration.seconds(1));
-        trn4.setPath(downLeft);
-        trn4.setNode(animal4);
-        trn4.play();
-
-
-        PathTransition trn5 = new PathTransition();
-        trn5.setDuration(Duration.seconds(1));
-        trn5.setPath(right);
-        trn5.setNode(animal5);
-        trn5.play();
-
-        PathTransition trn6 = new PathTransition();
-        trn6.setDuration(Duration.seconds(1));
-        trn6.setPath(left);
-        trn6.setNode(animal6);
-        trn6.play();
-
-        PathTransition trn7 = new PathTransition();
-        trn7.setDuration(Duration.seconds(1));
-        trn7.setPath(upRight);
-        trn7.setNode(animal7);
-        trn7.play();
-
-        PathTransition trn8 = new PathTransition();
-        trn8.setDuration(Duration.seconds(1));
-        trn8.setPath(upLeft);
-        trn8.setNode(animal8);
-        trn8.play();
-
+    private void transition(Button[][] button, Path[][] path) {
+        for(int i = 0; i < button.length; i++){
+            for(int j = 0; j < button[0].length; j++){
+                PathTransition trn = new PathTransition();
+                trn.setDuration(Duration.seconds(1));
+                trn.setPath(path[i][j]);
+                trn.setNode(button[i][j]);
+                trn.play();
+            }
+        }
     }
 
     public String getPieceImage(int rank) {
@@ -316,6 +306,17 @@ public class TurnController {
      * The function that compares the rank of the animals the players have picked
      */
     void proceedToGame() {
+        // disable all Buttons in this class using getClass().getDeclaredFields()
+        for (Field field : getClass().getDeclaredFields()) {
+            if (field.getType().equals(Button.class)) {
+                try {
+                    ((Button) field.get(this)).setDisable(true);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         PlayerType firstPlayer = (Player1Rank > Player2Rank) ? PlayerType.PLAYER1 : PlayerType.PLAYER2;
         turnFinalText.setText(PlayerType.getName(firstPlayer) + " will go first!");
         Timer t = new Timer();
