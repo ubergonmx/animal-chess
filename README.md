@@ -43,7 +43,7 @@ However the following exceptions apply:
 
 ## How to Play
 
-1. Run [AnimalChess.jar](./out/artifacts/AnimalChess_jar/AnimalChess.jar).
+1. Run [AnimalChess.exe](https://github.com/ubergonmx/animal-chess/releases/download/v1.0.0/AnimalChess.exe) or [AnimalChess.jar](./out/artifacts/AnimalChess_jar/AnimalChess.jar).
 2. To start the game, go to Play (and read the instructions) > press Ok.
 3. Player turns are determined by the chosen animal rank when clicking the provided buttons. The player with the highest rank animal goes first.
 4. Follow the rules of the game and try to capture your opponent's animal den to win.
