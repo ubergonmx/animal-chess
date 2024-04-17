@@ -48,9 +48,13 @@ However the following exceptions apply:
 3. Player turns are determined by the chosen animal rank when clicking the provided buttons. The player with the highest rank animal goes first.
 4. Follow the rules of the game and try to capture your opponent's animal den to win.
 
-## Credits
+## Team
 
 - Developed by [Aaron Palpallatoc](https://github.com/ubergonmx) and [Shane Enriquez](https://github.com/janshaaa)
+
+## Disclaimer
+Please note that the sound effects used in this project are for demonstration purposes only. We do not own or claim any rights to the sound effects used in the game. All sound effects are sourced from third-party libraries or repositories and are used in accordance with their respective licenses.
+
 
 ## License
 
